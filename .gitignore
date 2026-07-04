@@ -1,3 +1,6 @@
+# ─── Credenciales de producción (NUNCA subir a git) ─────────────────────────
+app/core/Database.php
+
 # ─── Archivos de entorno local ───────────────────────────────────────────────
 .env
 *.env
