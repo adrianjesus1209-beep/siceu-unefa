@@ -1,0 +1,28 @@
+# ─── Archivos de entorno local ───────────────────────────────────────────────
+.env
+*.env
+config.local.php
+
+# ─── Uploads de usuarios (documentos, fotos, carnets) ────────────────────────
+public/uploads/
+public/carnets/
+public/fotos/
+
+# ─── Logs y cachés de PHP ─────────────────────────────────────────────────────
+*.log
+/logs/
+
+# ─── Archivos del sistema operativo ──────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── IDEs y editores ──────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── Dependencias (si en algún momento se usa Composer o npm) ─────────────────
+vendor/
+node_modules/
