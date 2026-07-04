@@ -1,20 +1,28 @@
 ﻿<?php
 // CONEXION Y ESQUEMA DE BASE DE DATOS
 class Database {
-    private $host = "localhost";
-    private $db_name = "unefa_siceu_db";
-    private $username = "root";
-    private $password = "";
+    // =========================================================
+    // CREDENCIALES INFINITYFREE — reemplaza con los datos de
+    // tu panel: MySQL Databases > detalles de la BD creada
+    // =========================================================
+    private $host     = "TU_HOST_MYSQL";    // ej: sql200.infinityfree.com
+    private $db_name  = "TU_NOMBRE_BD";     // ej: if0_12345678_siceu
+    private $username = "TU_USUARIO_BD";    // ej: if0_12345678
+    private $password = "TU_PASSWORD_BD";   // la contraseña que pusiste
+    // =========================================================
     public $conn;
 
     public function getConnection() {
         $this->conn = null;
         try {
-            $this->conn = new PDO("mysql:host=" . $this->host . ";charset=utf8mb4", $this->username, $this->password);
+            // Conexion directa a BD existente (CREATE DATABASE no permitido en hosting compartido)
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->db_name . ";charset=utf8mb4",
+                $this->username,
+                $this->password
+            );
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->exec("SET NAMES utf8mb4");
-            $this->conn->exec("CREATE DATABASE IF NOT EXISTS `$this->db_name` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;");
-            $this->conn->exec("USE `$this->db_name`;");
 
             $this->conn->exec("CREATE TABLE IF NOT EXISTS `carrera` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
