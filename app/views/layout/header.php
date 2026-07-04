@@ -1,4 +1,4 @@
-﻿<?php // ENCABEZADO DEL SITIO ?>
+<?php // ENCABEZADO DEL SITIO ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
