@@ -118,6 +118,8 @@ SICEU UNEFA — Design System
 html {
     scroll-behavior: smooth;
     height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 body {
@@ -176,14 +178,19 @@ img {
 
 /* Top Bar */
 .barra-superior {
+    margin: 0 !important;
+    padding: 0 !important;
     line-height: 0;
     overflow: hidden;
+    background: #fff;
 }
 
 .barra-superior-cintilla {
     width: 100%;
     height: auto;
     display: block;
+    margin-top: -15px;
+    margin-bottom: -15px;
 }
 
 /* Navigation */
@@ -568,31 +575,39 @@ h6,
 .coord-purple-border {
     border-bottom: 4px solid #5c6bc0 !important;
 }
+
 .coord-purple-border:hover {
     border-color: #4a5ab9 !important;
     box-shadow: 0 15px 35px rgba(92, 107, 192, 0.1) !important;
 }
+
 .coord-user-border {
     border-bottom: 4px solid #7c3aed !important;
 }
+
 .coord-user-border:hover {
     border-color: #6d28d9 !important;
     box-shadow: 0 15px 35px rgba(124, 58, 237, 0.1) !important;
 }
+
 .coord-cyan-border {
     border-bottom: 4px solid #0891b2 !important;
 }
+
 .coord-cyan-border:hover {
     border-color: #0e7490 !important;
     box-shadow: 0 15px 35px rgba(8, 145, 178, 0.1) !important;
 }
+
 .coord-orange-border {
     border-bottom: 4px solid #c2410c !important;
 }
+
 .coord-orange-border:hover {
     border-color: #9a3412 !important;
     box-shadow: 0 15px 35px rgba(194, 65, 12, 0.1) !important;
 }
+
 .doc-purple-border {
     border-bottom: 4px solid #7b1fa2 !important;
 }
@@ -646,6 +661,7 @@ h6,
     border-color: #5c6bc0;
     color: #5c6bc0;
 }
+
 .btn-outline-card-purple:hover {
     background: #5c6bc0 !important;
     color: #fff !important;
@@ -656,6 +672,7 @@ h6,
     border-color: #e67e22;
     color: #e67e22;
 }
+
 .btn-outline-card-warning:hover {
     background: #e67e22 !important;
     color: #fff !important;
@@ -666,6 +683,7 @@ h6,
     border-color: #7c3aed;
     color: #7c3aed;
 }
+
 .btn-outline-card-user:hover {
     background: #7c3aed !important;
     color: #fff !important;
@@ -676,6 +694,7 @@ h6,
     border-color: #003366;
     color: #003366;
 }
+
 .btn-outline-card-blue:hover {
     background: #003366 !important;
     color: #fff !important;
@@ -686,6 +705,7 @@ h6,
     border-color: #0891b2;
     color: #0891b2;
 }
+
 .btn-outline-card-cyan:hover {
     background: #0891b2 !important;
     color: #fff !important;
@@ -696,6 +716,7 @@ h6,
     border-color: #c2410c;
     color: #c2410c;
 }
+
 .btn-outline-card-orange:hover {
     background: #c2410c !important;
     color: #fff !important;
@@ -919,8 +940,13 @@ h6,
 }
 
 /* Global modal z-index (above navbar 9998) */
-.modal { z-index: 10550 !important; }
-.modal-backdrop { z-index: 10500 !important; }
+.modal {
+    z-index: 10550 !important;
+}
+
+.modal-backdrop {
+    z-index: 10500 !important;
+}
 
 /* 5.7 Progress */
 .progress-bar-custom {
@@ -2462,12 +2488,15 @@ h6,
         justify-content: center;
         padding: 1rem 0;
         gap: 12px;
-        background: rgba(255,255,255,0.95);
+        background: rgba(255, 255, 255, 0.95);
         border-top: 1px solid var(--gray-200);
         margin-top: 2rem;
     }
 
-    button, a, .btn, [onclick] {
+    button,
+    a,
+    .btn,
+    [onclick] {
         touch-action: manipulation;
     }
 
@@ -2481,7 +2510,8 @@ h6,
         font-size: 0.78rem !important;
     }
 
-    h4.fw-bold, h5.fw-bold {
+    h4.fw-bold,
+    h5.fw-bold {
         font-size: 1rem !important;
     }
 
@@ -2509,11 +2539,13 @@ h6,
     .semester-steps {
         gap: 0.15rem;
     }
+
     .sem-step__bubble {
         width: 32px;
         height: 32px;
         font-size: 0.6rem;
     }
+
     .sem-step__label {
         font-size: 0.5rem;
     }
@@ -2521,7 +2553,9 @@ h6,
 
 /* ===== Extra small devices (<360px) ===== */
 @media (max-width: 360px) {
-    .container, .container-fluid {
+
+    .container,
+    .container-fluid {
         padding-left: 0.5rem !important;
         padding-right: 0.5rem !important;
     }
@@ -2535,6 +2569,7 @@ h6,
     .semester-column {
         width: 130px;
     }
+
     .subject-card-compact {
         width: 130px;
     }
@@ -2579,7 +2614,7 @@ body:has(.registrar-docente-modal.show) .modal-backdrop {
     pointer-events: auto;
     padding: 1rem 1.2rem;
     border-radius: 14px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
     gap: 0.85rem;
@@ -2607,7 +2642,7 @@ body:has(.registrar-docente-modal.show) .modal-backdrop {
 }
 
 .toast-unefa .toast-close {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     border: none;
     width: 28px;
     height: 28px;
@@ -2627,17 +2662,35 @@ body:has(.registrar-docente-modal.show) .modal-backdrop {
 
 .toast-unefa .toast-close:hover {
     opacity: 1;
-    background: rgba(255,255,255,0.35);
+    background: rgba(255, 255, 255, 0.35);
 }
 
-.toast-unefa.toast-success { background: #16a34a; }
-.toast-unefa.toast-error { background: #dc2626; }
-.toast-unefa.toast-warning { background: #d97706; }
-.toast-unefa.toast-info { background: #2563eb; }
+.toast-unefa.toast-success {
+    background: #16a34a;
+}
+
+.toast-unefa.toast-error {
+    background: #dc2626;
+}
+
+.toast-unefa.toast-warning {
+    background: #d97706;
+}
+
+.toast-unefa.toast-info {
+    background: #2563eb;
+}
 
 @keyframes toastSlideIn {
-    from { transform: translateX(120%) scale(0.9); opacity: 0; }
-    to { transform: translateX(0) scale(1); opacity: 1; }
+    from {
+        transform: translateX(120%) scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
 }
 
 /* ===== Toast Responsive ===== */
