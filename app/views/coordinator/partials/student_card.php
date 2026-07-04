@@ -73,16 +73,16 @@
                         </div>
                     <div class="position-relative d-flex justify-content-center">
                         <div class="position-relative" style="max-width:300px;width:100%;aspect-ratio:1;">
-                            <video id="video" class="rounded-3 bg-dark position-absolute" style="width:100%;height:100%;object-fit:cover;display:none;inset:0;"></video>
-                            <canvas id="canvas" class="rounded-3 position-absolute" style="width:100%;height:100%;display:none;inset:0;"></canvas>
-                            <div id="guide-overlay" class="position-absolute" style="inset:0;pointer-events:none;display:none;border-radius:10px;overflow:hidden;">
+                            <video id="video" playsinline autoplay muted class="rounded-3 bg-dark position-absolute" style="width:100%;height:100%;object-fit:cover;opacity:1;inset:0;z-index:0;"></video>
+                            <canvas id="canvas" class="rounded-3 position-absolute" style="width:100%;height:100%;display:none;inset:0;z-index:2;"></canvas>
+                            <div id="guide-overlay" class="position-absolute" style="inset:0;pointer-events:none;display:none;border-radius:10px;overflow:hidden;z-index:3;">
                                 <svg width="100%" height="100%" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;left:0;">
                                     <rect width="300" height="300" fill="rgba(0,0,0,0.35)"/>
                                     <ellipse cx="150" cy="135" rx="80" ry="100" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="2.5" stroke-dasharray="8,4"/>
                                     <text x="150" y="270" text-anchor="middle" fill="white" font-size="11" font-family="Arial">Centra el rostro aqui</text>
                                 </svg>
                             </div>
-                            <div id="cam-placeholder" class="d-flex flex-column align-items-center justify-content-center gap-2 rounded-3 position-absolute" style="width:100%;height:100%;inset:0;background:#f8fafc;border:2px dashed #cbd5e1;">
+                            <div id="cam-placeholder" class="flex-column align-items-center justify-content-center gap-2 rounded-3 position-absolute" style="display:flex;width:100%;height:100%;inset:0;background:#f8fafc;border:2px dashed #cbd5e1;z-index:1;">
                                 <i class="fas fa-camera fa-3x" style="color:#94a3b8;"></i>
                                 <span style="color:#94a3b8;font-size:.8rem;">La camara aparecera aqui</span>
                             </div>
@@ -111,6 +111,9 @@
                     </button>
                     <button id="btn-capture" onclick="capturePhoto()" class="btn btn-sm rounded-pill px-3 fw-semibold" style="display:none;background:#16a34a;color:#fff;border:none;">
                         <i class="fas fa-camera me-1"></i>Capturar
+                    </button>
+                    <button id="btn-switch" onclick="switchCamera()" class="btn btn-sm rounded-pill px-3" style="display:none;background:#e2e8f0;color:#475569;border:none;">
+                        <i class="fas fa-sync-alt me-1"></i>Frontal
                     </button>
                     <button id="btn-retry" onclick="retryCamera()" class="btn btn-sm rounded-pill px-3" style="display:none;background:#e2e8f0;color:#475569;border:none;">
                         <i class="fas fa-redo me-1"></i>Reintentar

@@ -10,7 +10,7 @@
     <title>UNEFA - Excelencia Educativa Abierta al Pueblo</title>
     <link rel="icon" type="image/png" href="<?php echo URLROOT; ?>/assets/img/logos/logo_unefa.png">
     <link href="<?php echo URLROOT; ?>/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo URLROOT; ?>/css/estilos.css?v=3" rel="stylesheet">
+    <link href="<?php echo URLROOT; ?>/css/estilos.css?v=5" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

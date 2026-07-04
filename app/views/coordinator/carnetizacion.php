@@ -242,20 +242,34 @@ const PARAM_ID      = ES_DOCENTE ? 'doc_id' : 'est_id';
 
 let stream     = null;
 let photoData  = null;
+let facingMode = 'user';
 
 function stopCamera() {
     if (stream) {
         stream.getTracks().forEach(track => track.stop());
         stream = null;
     }
-    const video = document.getElementById('video');
-    if(video) video.style.display = 'none';
     const guide = document.getElementById('guide-overlay');
     if(guide) guide.style.display = 'none';
     const place = document.getElementById('cam-placeholder');
     if(place) place.style.display = 'flex';
-    const activeTabId = document.querySelector('.nav-link.active').id;
-    document.getElementById('btn-start').style.display = (activeTabId === 'webcam-tab') ? 'inline-block' : 'none';
+    const activeTabId = document.querySelector('.nav-link.active');
+    const isWebcam = activeTabId && activeTabId.id === 'webcam-tab';
+    document.getElementById('btn-start').style.display = isWebcam ? 'inline-block' : 'none';
+    document.getElementById('btn-capture').style.display = 'none';
+    document.getElementById('btn-switch').style.display = 'none';
+}
+
+async function switchCamera() {
+    facingMode = facingMode === 'user' ? 'environment' : 'user';
+    if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+        stream = null;
+    }
+    const btn = document.getElementById('btn-switch');
+    if(btn) { btn.disabled = true; btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>'; }
+    await startCamera();
+    if(btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-sync-alt me-1"></i>' + (facingMode === 'user' ? 'Frontal' : 'Trasera'); }
 }
 
 function handleFileUpload(input) {
@@ -277,26 +291,46 @@ function handleFileUpload(input) {
 
 async function startCamera() {
     const isSecure = location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    if (!isSecure) {
+        notificar('La camara requiere HTTPS o localhost. En este telefono usa la opcion "Subir Archivo".', 'error');
+        return;
+    }
     try {
-        const constraints = { video: { width: { ideal: 640 }, height: { ideal: 640 }, facingMode: 'user' }, audio: false };
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            notificar('Tu navegador no soporta camara en esta pagina.', 'error');
+            return;
+        }
+        const constraints = { video: { width: { ideal: 640 }, height: { ideal: 640 }, facingMode }, audio: false };
         stream = await navigator.mediaDevices.getUserMedia(constraints);
+        if (!stream || !stream.getVideoTracks || stream.getVideoTracks().length === 0) {
+            notificar('No se recibio el flujo de la camara. Verifica los permisos.', 'error');
+            return;
+        }
         const video = document.getElementById('video');
         video.srcObject = stream;
         await video.play();
         document.getElementById('cam-placeholder').style.display = 'none';
         document.getElementById('canvas').style.display = 'none';
-        video.style.display = 'block';
         document.getElementById('guide-overlay').style.display = 'block';
         document.getElementById('btn-start').style.display = 'none';
         document.getElementById('btn-capture').style.display = 'inline-block';
+        const btnSwitch = document.getElementById('btn-switch');
+        btnSwitch.style.display = 'inline-block';
+        btnSwitch.innerHTML = '<i class="fas fa-sync-alt me-1"></i>' + (facingMode === 'user' ? 'Frontal' : 'Trasera');
         document.getElementById('btn-retry').style.display = 'none';
         document.getElementById('btn-save').style.display = 'none';
     } catch(e) {
         let errorMsg = 'No se pudo acceder a la camara.';
-        if (!isSecure) {
-            errorMsg += '\n\n⚠️ DETECTADO ORIGEN NO SEGURO: Los navegadores moviles BLOQUEAN la camara si no usas HTTPS o localhost.\n\nPara probar en el telefono usa una foto con "Subir Archivo".';
+        if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError') {
+            errorMsg += '\n\nPermiso denegado. Ve a Ajustes > Privacidad > Camara y permite el acceso.';
+        } else if (e.name === 'NotFoundError') {
+            errorMsg += '\n\nNo se encontro una camara en este dispositivo.';
+        } else if (e.name === 'NotReadableError') {
+            errorMsg += '\n\nLa camara esta siendo usada por otra aplicacion. Cierrala e intenta de nuevo.';
+        } else if (e.name === 'OverconstrainedError') {
+            errorMsg += '\n\nLa camara no soporta la resolucion solicitada.';
         } else {
-            errorMsg += '\n\nVerifica que diste permisos de camara al navegador.\n\nDetalle: ' + e.message;
+            errorMsg += '\n\n' + e.message;
         }
         notificar(errorMsg, 'error');
     }
