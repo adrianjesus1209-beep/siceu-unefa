@@ -189,8 +189,8 @@ img {
     width: 100%;
     height: auto;
     display: block;
-    margin-top: -15px;
-    margin-bottom: -15px;
+    transform: scale(1.08);
+    /* Zoom out borders */
 }
 
 /* Navigation */
