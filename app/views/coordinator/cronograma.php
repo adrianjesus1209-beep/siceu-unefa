@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // CRONOGRAMA ACADEMICO
 if (!isset($_SESSION['id_usuario'])) {
     header('Location: index.php?page=login');

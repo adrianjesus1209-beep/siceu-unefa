@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // PLANILLA DE PREINSCRIPCION
 $id_usuario = $_SESSION['id_usuario_temp'] ?? $_SESSION['id_usuario'] ?? null;
 if (!$id_usuario) {
@@ -44,7 +44,7 @@ $foto_ruta = !empty($datos['foto_perfil']) && $datos['foto_perfil'] !== 'default
     <style>
         body { font-family: 'Helvetica', 'Arial', sans-serif; color: #333; margin: 0; line-height: 1.4; }
         .only-screen { display: block; }
-        .cintilla { width: 100%; display: block; max-height: 61px; object-fit: cover; }
+        .cintilla { width: 100%; display: block; max-height: 61px; object-fit: cover; object-position: top; }
         .content { padding: 25px 40px; }
         .membrete { display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
         .membrete-logo { width: 80px; height: 80px; flex-shrink: 0; }

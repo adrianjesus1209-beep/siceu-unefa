@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // REPORTES PDF
 require_once __DIR__ . '/../../libs/fpdf.php';
 

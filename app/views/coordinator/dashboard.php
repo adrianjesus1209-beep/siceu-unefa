@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // APROBACION DE REGISTROS
 $modeloUsuario = new Usuario($conexion);
 $pendientes = $modeloUsuario->obtenerUsuariosPendientes();

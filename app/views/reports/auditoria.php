@@ -1,4 +1,4 @@
-﻿<?php // AUDITORIA DEL SISTEMA ?>
+<?php // AUDITORIA DEL SISTEMA ?>
 <style>
 .modal-pdf iframe { width: 100%; height: 100%; border: none; }
 .modal-pdf .modal-body { padding: 0; background: #f0f0f0; }

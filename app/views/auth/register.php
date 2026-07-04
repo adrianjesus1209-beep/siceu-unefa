@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // REGISTRO DE ESTUDIANTE
 $conn_view = $conexion ?? (new Database())->getConnection();
 $stmtPeriodoReg = $conn_view->query("SELECT estado, nombre FROM periodo_academico ORDER BY FIELD(estado, 'Activo', 'Planificado', 'Finalizado') LIMIT 1");

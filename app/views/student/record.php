@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // HISTORIAL ACADEMICO
 if ($_SESSION['rol_usuario'] !== 'Estudiante') {
     header('Location: index.php?page=dashboard');

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // CONTROLADOR DE AUTENTICACION
 class AuthController {
     private $modeloUsuario;

@@ -1,4 +1,4 @@
-﻿<?php // PAGINA DE INICIO ?>
+<?php // PAGINA DE INICIO ?>
     <div class="container px-3 px-lg-0 mb-5">
         <div class="contenedor-banner-principal d-flex align-items-center justify-content-center text-center fluido-entrada">
             <div class="text-white p-5 contenedor-texto-banner">

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // GESTION DE DOCENTES
 $stmtDocentes = $conexion->prepare(
     "SELECT u.id, u.correo, u.estado, p.id as id_perfil, p.nombre, p.segundo_nombre, p.apellido, p.segundo_apellido, p.cedula, p.tipo_documento, p.foto_perfil

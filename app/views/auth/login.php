@@ -1,4 +1,4 @@
-﻿<?php // INICIO DE SESION ?>
+<?php // INICIO DE SESION ?>
 <div class="container pt-5 pb-4">
     <div class="row justify-content-center">
         <div class="col-md-5">

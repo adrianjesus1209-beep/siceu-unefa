@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // PANEL DE DOCENTE
 if (!in_array($_SESSION['rol_usuario'], ['Docente', 'Coordinador'])) {
     header('Location: index.php?page=dashboard');

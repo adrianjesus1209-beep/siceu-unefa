@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // PRELACION DE MATERIAS
 $pdf_url = URLROOT . '/assets/pensum/matriz-prelacion-sistemas-diurno-2010.pdf';
 ?>

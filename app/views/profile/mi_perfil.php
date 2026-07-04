@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // PERFIL DE USUARIO
 $modeloUsuario = new Usuario($conexion);
 $perfil = $modeloUsuario->obtenerPerfilCompleto($_SESSION['id_usuario']);

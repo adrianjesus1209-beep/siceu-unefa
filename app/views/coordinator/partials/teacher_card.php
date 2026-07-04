@@ -1,4 +1,4 @@
-﻿<?php // TARJETA DE DOCENTE ?>
+<?php // TARJETA DE DOCENTE ?>
 <?php if (isset($est_data) && $est_data): ?>
     <div class="card border-0 overflow-hidden animate__animated animate__fadeIn" style="box-shadow:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);border-radius:14px;">
         <div class="p-4" style="background:linear-gradient(135deg,#003366,#005c99);">

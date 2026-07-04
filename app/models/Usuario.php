@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // MODELO DE USUARIO
 class Usuario {
     private $controlador;

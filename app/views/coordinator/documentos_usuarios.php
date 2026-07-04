@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // GESTION DE DOCUMENTOS
 if (!isset($_SESSION['rol_usuario']) || $_SESSION['rol_usuario'] !== 'Coordinador') {
     header('Location: index.php?page=login');

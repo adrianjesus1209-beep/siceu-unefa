@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // PANEL DE ESTUDIANTE
 if ($_SESSION['rol_usuario'] !== 'Estudiante') {
     header('Location: index.php?page=dashboard');

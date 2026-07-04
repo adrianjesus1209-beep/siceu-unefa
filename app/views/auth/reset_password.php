@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // RECUPERAR CONTRASENA
 $step = $_SESSION['reset_step'] ?? '1';
 $preguntas = $_SESSION['reset_questions'] ?? [];

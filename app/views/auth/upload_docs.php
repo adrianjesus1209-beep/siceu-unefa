@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // SUBIDA DE DOCUMENTOS
 $id_usuario = $_SESSION['id_usuario_temp'] ?? $_SESSION['id_usuario'] ?? null;
 if (!$id_usuario) {

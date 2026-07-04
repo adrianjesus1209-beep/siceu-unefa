@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // PANEL DE COORDINADOR
 $periodoVencido = $conexion->query("SELECT nombre FROM periodo_academico WHERE estado = 'Activo' AND fecha_fin IS NOT NULL AND fecha_fin < CURDATE() LIMIT 1")->fetchColumn();
 

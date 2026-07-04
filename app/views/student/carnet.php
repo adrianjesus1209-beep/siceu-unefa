@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // CARNET ESTUDIANTIL
 if (!isset($_SESSION['id_usuario']) || $_SESSION['rol_usuario'] !== 'Estudiante') {
     header('Location: index.php?page=login');
