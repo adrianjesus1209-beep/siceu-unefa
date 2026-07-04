@@ -184,8 +184,6 @@ img {
     width: 100%;
     height: auto;
     display: block;
-    max-height: 61px;
-    object-fit: cover;
 }
 
 /* Navigation */
